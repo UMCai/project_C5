@@ -173,7 +173,7 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-
+logs
 data/MedNIST/*
 !data/MedNIST/*.*
 data/MedNIST.tar.gz
