@@ -266,13 +266,15 @@ for epoch in range(max_epochs):
         total_val_loss /= val_step
         val_loss_values.append(total_val_loss)
         print(f"epoch {epoch + 1} Validation avg loss: {total_val_loss:.4f}, " f"time taken: {end_time-start_time}s")
+        torch.save(model.state_dict(), os.path.join(logdir_path, f"model_epoch_{epoch+1}.pth"))
 
         if total_val_loss < best_val_loss:
-            print(f"Saving new model based on validation loss {total_val_loss:.4f}")
+            print(f"Saving new model based on validation loss {total_val_loss:.4f} on epoch {epoch + 1}")
             best_val_loss = total_val_loss
             # checkpoint = {"epoch": max_epochs, "state_dict": model.state_dict(), "optimizer": optimizer.state_dict()}
             torch.save(model.state_dict(), os.path.join(logdir_path, f"best_model_epoch_{epoch+1}.pth"))
-
+            
+    
         
         plt.figure(1, figsize=(8, 8))
         plt.subplot(2, 2, 1)
