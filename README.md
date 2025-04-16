@@ -17,3 +17,4 @@ Here is the algorithm in making this AI architecture to mimic how vision works
 4. perform step3 N times (N is the number of classes) and repeat K times (so each label can have K samples), update M_stable by average the Rs for each L. R_stable = (R_1+R_2+..+R_K)/K [optional but important, might be good to use contrastive learning technique to make each class samples’s representation far away]
 5. Take in new samples and match. Use d_i ,the distance between R_new and R_stable for each classes I to get the D = [1/d_1, 1/d_2, …, 1/d_N], and normalise this to get the results of which label it should be and its probability.
 PS: E might be not enough for the model to separate each labels nicely, so a new trainable layer(s) might need to involve in between in order to update the cognition.
+
